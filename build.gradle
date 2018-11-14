@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+
+group 'com.massahud'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    // junit
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // rest assured
+    testCompile 'io.rest-assured:rest-assured:3.1.1'
+
+    // jackson json
+    testCompile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+    testCompile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.6'
+    testCompile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.6'
+    testCompile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.9.6'
+    testCompile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.6'
+
+    // extra testing
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.9.0'
+    testCompile group: 'org.awaitility', name: 'awaitility', version: '3.0.0'
+}
